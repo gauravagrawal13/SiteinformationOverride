@@ -1,0 +1,5 @@
+name: Siteinformation Override
+type: module
+description: 'This module provides the additional configuration API field and provides a URL that responds with a JSON representation of a given node.'
+package: Custom modules
+core: 8.x
