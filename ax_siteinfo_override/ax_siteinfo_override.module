@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @file
+ * A module that alters the existing drupal "site information" form.
+ */
+
 use Drupal\Core\Form\FormStateInterface;
 
 /**
