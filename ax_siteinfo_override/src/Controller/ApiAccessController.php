@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class ApiAccessController extends ControllerBase {
 
-  private $node_object;
+  protected $node_object;
 
  /**
   * Function to return node json response
@@ -43,7 +43,7 @@ class ApiAccessController extends ControllerBase {
   */
   public function page_node_exists($nid){
     $node = \Drupal\node\Entity\Node::load($nid);
-    $this->$node_object = $node;
+    $this->node_object = $node;
     if(empty($node)){
       return false;
     }
@@ -63,8 +63,7 @@ class ApiAccessController extends ControllerBase {
   public function serialize_node($nid)
   {
       $serializer = \Drupal::service('serializer');
-      // $node = \Drupal\node\Entity\Node::load($nid);
-      $node_json = $serializer->serialize($this->$node_object->$node, 'json', ['plugin_id' => 'entity']);
+      $node_json = $serializer->serialize($this->node_object, 'json', ['plugin_id' => 'entity']);
       return $node_json;
   }
 }
